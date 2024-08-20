@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+<title>Stocks With Steve Stocks</title>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body style="margin: 0px;" bgcolor="#678fc2">
+
+   <div id="result">
+      <script type="module" src="getStocks.js"></script>	
+      Random Stocks Shown Below</br>
+      <script>
+
+         function updateQuotes(data) {
+          for (ticker in quote) {
+           var symbol = quote[ticker];
+           document.write('</br></br><div> ' + ticker + '</div>');
+           document.write('<div> Close -  ' + symbol['Last'] + '</div>');
+           document.write('<div> Low -  ' + symbol['Low'] + '</div>');
+           document.write('<div> High -  ' + symbol['High'] + '</div>');
+           document.write('<div> Open - ' + symbol['Open'] + '</div>');
+          
+          }
+         }
+        </script>
+        
+        <script src="http://feeds.financialcontent.com/JSQuote?Ticker=GOOG+T+AMZN"></script>					
+   </div>
+</body>
