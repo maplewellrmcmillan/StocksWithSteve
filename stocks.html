@@ -1,12 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
  <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-<title>Stocks With Steve Stocks</title>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-</head>
+   <head>
+      <meta charset="utf-8">
+      <title>Stocks with Steve - Stocks</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 
 <body style="margin: 0px;" bgcolor="#678fc2">
 
@@ -18,16 +17,23 @@
          function updateQuotes(data) {
           for (ticker in quote) {
            var symbol = quote[ticker];
+           //document.write('</br>' + JSON.stringify(symbol) + '</br>');
            document.write('</br></br><div> ' + ticker + '</div>');
-           document.write('<div> Close -  ' + symbol['Last'] + '</div>');
-           document.write('<div> Low -  ' + symbol['Low'] + '</div>');
-           document.write('<div> High -  ' + symbol['High'] + '</div>');
-           document.write('<div> Open - ' + symbol['Open'] + '</div>');
-          
+           document.write('<div> Exchange - ' + symbol['ExchangeShortName'] + '</div>');
+           document.write('<div> Name - ' + symbol['Name'] + '</div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> Close</div><div style="display: inline-block">$'+ symbol['Last'] +'</div></div>');           
+           document.write('<div><div style="display: inline-block;width: 400px;"> Low</div><div style="display: inline-block">$'+ symbol['Low'] +'</div></div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> High</div><div style="display: inline-block">$'+ symbol['High'] +'</div></div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> Open</div><div style="display: inline-block">$'+ symbol['Open'] +'</div></div>');
+           //document.write('<div><div style="display: inline-block;width: 400px;"> Dividend</div><div style="display: inline-block">$'+ symbol['Dividend'] +'</div></div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> Previous Close</div><div style="display: inline-block">$'+ symbol['PrevClose'] +'</div></div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> EPS</div><div style="display: inline-block">'+ symbol['EPS'] +'</div></div>');           
+           document.write('<div><div style="display: inline-block;width: 400px;"> 52 Week High</div><div style="display: inline-block">$'+ symbol['High52'] +'</div></div>');
+           document.write('<div><div style="display: inline-block;width: 400px;"> 52 Week Low</div><div style="display: inline-block">$'+ symbol['Low52'] +'</div></div>');    
           }
          }
         </script>
         
-        <script src="http://feeds.financialcontent.com/JSQuote?Ticker=GOOG+T+AMZN"></script>					
+        <script src="http://feeds.financialcontent.com/JSQuote?Ticker=GOOG+T+AMZN+TSE:FN+TSE:ATD+TSE:RY+TSE:TD"></script>					
    </div>
 </body>
